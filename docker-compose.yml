@@ -1,0 +1,11 @@
+version: '3'
+
+services: 
+  frontend:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: 
+      "rickandmorty:sass"
+    ports: 
+      - "3000:3000"
