@@ -102,7 +102,7 @@ spec:
         app: rickandmortyapp
     spec:
       containers:
-        - image: gcr.io/rickandmortyapp-308211/github_tubl_rickandmorty
+        - image: gcr.io/rickandmortyapp-308211/github_tubl_rickandmorty@sha256:806b0d45101bafa8bfb4c83daf64586f3a72a7c2ff76c695267f1dab6db0d12f
           imagePullPolicy: IfNotPresent
           name: github-tubl-rickandmorty-1
           resources:
