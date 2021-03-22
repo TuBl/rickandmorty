@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Getting Started with Rick and morty react app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# How to run this application
 
-In the project directory, you can run:
+1. run `git clone https://github.com/TuBl/rickandmorty .`
+2. At the project root directory `npm install`
+3. `npm start` <br>
+   > Runs the app in the development mode.\
+   > Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### P01
+Create react app was used to bootstrap this project. <br>
+### P02
+Docker file that generates a docker image for the app
+### P03
+Docker Compose that can be used up to spin up multiple services/containers simultaenously 
+### P04
+Used branches for features devolopment and merged to maser via pull requests with clear and concise commits.
+### P05
+Code is Open source with MIT License
+### P06 
+Ant Design components were used in every part of the application, Navbar, Input fields, Charecters list grid & Charecter showcase card.
+### P07
+Dockerized version of the api was deployed via GKE on the following address: http://34.68.69.108/api
+    - /character
+    - /location
+    - /episode
+![Api service running on GKE](/readme-assets/P08.PNG)
+### P08
+NA
+### P09
+A simple CI was created via github actions at .git/workflows/integrate.yml
 
-### `npm test`
+`
+name: Continuous Integration
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+on:
+  pull_request:
+    branches: [ master ]
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This runs on pull requests and runs our default test (App.test). If the command `npm test` or `npm run build` fail we know not merge the pull request into our master branch. <br>
 
-### `npm run eject`
+### P10
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+A simple CD was created via Google Cloud Build, it runs on push to the master branch check kubernetes/deploy.yml.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![CD via Google Cloud Build](/readme-assets/P10.PNG)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### P11
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The application was deployed on GKE at http://34.67.79.233/
 
-## Learn More
+![Front end App running on GKE](/readme-assets/P11.PNG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### P12
+GitHub Repo for the API: https://github.com/TuBl/rickandmortyapi
+API Deployed to GKE: http://34.68.69.108/api  **Check P07**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### P13
+N/A
