@@ -36,7 +36,7 @@ NA
 ### P09
 A simple CI was created via github actions at .git/workflows/integrate.yml
 
-`
+```
 name: Continuous Integration
 
 on:
@@ -56,7 +56,7 @@ jobs:
       - run: npm test
       - run: npm run build
 
-`
+```
 
 This runs on pull requests and runs our default test (App.test). If the command `npm test` or `npm run build` fail we know not merge the pull request into our master branch. <br>
 
