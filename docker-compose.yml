@@ -9,3 +9,4 @@ services:
       "rickandmorty:sass"
     ports: 
       - "3000:3000"
+      

@@ -18,7 +18,32 @@ Create react app was used to bootstrap this project. <br>
 ### P02
 Docker file that generates a docker image for the app
 ### P03
-Docker Compose that can be used up to spin up multiple services/containers simultaenously 
+Docker Compose that can be used up to spin up multiple services/containers simultaenously "below is an example of a docker-compose.yml for a project with multiple services instead of just a front end since ours doesn't have a backend."
+
+```
+# React front end, Node back end
+version: '3'
+
+services:
+  backend:
+    env_file:
+        "./backend/.env"
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    image: "tubi78/rickandmorty"
+    ports:
+      - "5000:5000"
+  frontend:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "rickandmorty"
+    ports:
+      - "3000:3000"
+    links:
+      - "backend:be"
+```
 ### P04
 Used branches for features devolopment and merged to maser via pull requests with clear and concise commits.
 ### P05
