@@ -11,6 +11,7 @@ function Test() {
         <Switch>
           <Route exact path = "/charecter/:id" component={CharecterPreview}></Route>
           <Route path = "/" component={CharectersList}></Route>
+          <Route path = "/" component={CharectersList}></Route>
         </Switch>
       </div>
 
