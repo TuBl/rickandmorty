@@ -18,7 +18,7 @@ Create react app was used to bootstrap this project. <br>
 ### P02
 Docker file that generates a docker image for the app
 ### P03
-Docker Compose that can be used up to spin up multiple services/containers simultaenously "below is an example of a docker-compose.yml for a project with multiple services instead of just a front end since ours doesn't have a backend."
+Docker Compose that can be used up to spin up multiple services/containers simultaenously was created. "below is an example of a docker-compose.yml for a project with multiple services instead of just a front end since ours doesn't have a backend."
 
 ```
 # React front end, Node back end
